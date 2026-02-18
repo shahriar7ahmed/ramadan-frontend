@@ -1,0 +1,176 @@
+.section {
+    background: linear-gradient(180deg, transparent, rgba(139, 94, 60, 0.03), transparent);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+/* Ayah Card */
+.ayahCard {
+    padding: var(--space-2xl);
+}
+
+.ayahHeader,
+.hadithHeader,
+.explainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.label {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+}
+
+.ref,
+.hadithRef {
+    font-size: var(--fs-xs);
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* Arabic Quote */
+.arabicQuote {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-2xl);
+    line-height: 2.2;
+    direction: rtl;
+    text-align: center;
+    color: var(--text-primary);
+    padding: var(--space-xl) 0;
+    margin: 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    position: relative;
+}
+
+.arabicQuote::before {
+    content: "❝";
+    position: absolute;
+    top: var(--space-sm);
+    left: var(--space-sm);
+    font-size: 2rem;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    font-family: serif;
+}
+
+/* Language Toggle */
+.langToggle {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin: var(--space-lg) 0 var(--space-md);
+}
+
+.langBtn {
+    padding: 4px 16px;
+    border-radius: 100px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    border: 1px solid transparent;
+    transition: all var(--transition-base);
+}
+
+.langBtn:hover {
+    color: var(--accent-orange);
+}
+
+.langActive {
+    background: rgba(224, 123, 57, 0.1);
+    color: var(--accent-orange);
+    border-color: rgba(224, 123, 57, 0.2);
+}
+
+.translationBox {
+    margin-top: var(--space-md);
+}
+
+.translation {
+    font-size: var(--fs-base);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* Right Column */
+.rightCol {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* Hadith Card */
+.hadithCard {
+    padding: var(--space-xl);
+}
+
+.hadithText {
+    font-size: var(--fs-base);
+    line-height: 1.8;
+    color: var(--accent-brown);
+    font-style: italic;
+    margin: 0;
+    padding: 0 var(--space-md);
+    border-left: 3px solid var(--accent-gold);
+}
+
+.hadithMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-md);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--border-light);
+}
+
+.narrator {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Explanation Card */
+.explainCard {
+    padding: var(--space-xl);
+}
+
+.explainText {
+    font-size: var(--fs-sm);
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Refresh hint */
+.refreshHint {
+    text-align: center;
+    margin-top: var(--space-2xl);
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .ayahCard {
+        padding: var(--space-lg);
+    }
+
+    .arabicQuote {
+        font-size: var(--fs-xl);
+        line-height: 2;
+    }
+}

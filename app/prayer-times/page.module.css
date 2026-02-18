@@ -51,6 +51,11 @@
     font-size: var(--fs-xs);
 }
 
+.notifRow {
+    max-width: 480px;
+    margin: 0 auto var(--space-xl);
+}
+
 /* Top Grid */
 .topGrid {
     display: grid;

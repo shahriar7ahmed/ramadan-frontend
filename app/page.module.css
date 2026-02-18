@@ -7,6 +7,11 @@
   padding-top: var(--space-3xl);
 }
 
+.notifRow {
+  max-width: 480px;
+  margin: 0 auto var(--space-xl);
+}
+
 .prayerGrid {
   display: grid;
   grid-template-columns: 1.3fr 1fr;

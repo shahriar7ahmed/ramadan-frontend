@@ -2,11 +2,15 @@
 
 import { useState, useEffect } from "react";
 import useGeolocation from "@/hooks/useGeolocation";
+import usePrayerNotifications from "@/hooks/usePrayerNotifications";
 import { getPrayerTimes } from "@/lib/api/prayerTimes";
 import HeroSection from "@/components/HeroSection";
 import PrayerTimesCard from "@/components/PrayerTimesCard";
 import LocationSelector from "@/components/LocationSelector";
+import NotificationToggle from "@/components/NotificationToggle";
 import FeaturedSurahs from "@/components/FeaturedSurahs";
+import DuaSection from "@/components/DuaSection";
+import DailyInspiration from "@/components/DailyInspiration";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -14,6 +18,10 @@ export default function Home() {
     useGeolocation();
   const [prayerData, setPrayerData] = useState(null);
   const [locationOpen, setLocationOpen] = useState(false);
+
+  // Prayer notifications
+  const { permission, enabled, toggleNotifications, supported } =
+    usePrayerNotifications(prayerData?.timings);
 
   useEffect(() => {
     if (!latitude || !longitude) return;
@@ -46,6 +54,16 @@ export default function Home() {
             <h2>Today&apos;s Prayer Times</h2>
             <div className="divider" />
             <p>Accurate times based on your location</p>
+          </div>
+
+          {/* Notification Toggle */}
+          <div className={styles.notifRow}>
+            <NotificationToggle
+              enabled={enabled}
+              onToggle={toggleNotifications}
+              supported={supported}
+              permission={permission}
+            />
           </div>
 
           <div className={styles.prayerGrid}>
@@ -85,6 +103,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Daily Inspiration — Random Ayah + Hadith */}
+      <DailyInspiration />
+
+      {/* Important Duas */}
+      <DuaSection />
 
       {/* Featured Surahs */}
       <FeaturedSurahs />

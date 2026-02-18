@@ -7,6 +7,8 @@ import PrayerTimesCard from "@/components/PrayerTimesCard";
 import CountdownTimer from "@/components/CountdownTimer";
 import RamadanCalendar from "@/components/RamadanCalendar";
 import LocationSelector from "@/components/LocationSelector";
+import NotificationToggle from "@/components/NotificationToggle";
+import usePrayerNotifications from "@/hooks/usePrayerNotifications";
 import styles from "./page.module.css";
 
 export default function PrayerTimesPage() {
@@ -15,6 +17,9 @@ export default function PrayerTimesPage() {
     const [prayerData, setPrayerData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [locationOpen, setLocationOpen] = useState(false);
+
+    const { permission, enabled, toggleNotifications, supported } =
+        usePrayerNotifications(prayerData?.timings);
 
     useEffect(() => {
         if (!latitude || !longitude) return;
@@ -53,6 +58,16 @@ export default function PrayerTimesPage() {
                         <span>{city || "Select Location"}</span>
                         <span className={styles.changeLabel}>Change</span>
                     </button>
+                </div>
+
+                {/* Notification Toggle */}
+                <div className={styles.notifRow}>
+                    <NotificationToggle
+                        enabled={enabled}
+                        onToggle={toggleNotifications}
+                        supported={supported}
+                        permission={permission}
+                    />
                 </div>
 
                 {/* Top Section: Countdown + Today's Prayers */}
