@@ -8,10 +8,6 @@ import { useState, useEffect, useCallback, useRef } from "react";
  * @returns {{ hours: number, minutes: number, seconds: number, isComplete: boolean }}
  */
 export default function useCountdown(targetTime) {
-    const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
-    const [isComplete, setIsComplete] = useState(false);
-    const intervalRef = useRef(null);
-
     const computeTimeLeft = useCallback(() => {
         if (!targetTime) return { hours: 0, minutes: 0, seconds: 0 };
 
@@ -43,12 +39,14 @@ export default function useCountdown(targetTime) {
         };
     }, [targetTime]);
 
-    useEffect(() => {
-        // Initial computation
+    const [timeLeft, setTimeLeft] = useState(() => computeTimeLeft());
+    const [isComplete, setIsComplete] = useState(() => {
         const initial = computeTimeLeft();
-        setTimeLeft(initial);
-        setIsComplete(initial.hours === 0 && initial.minutes === 0 && initial.seconds === 0);
+        return initial.hours === 0 && initial.minutes === 0 && initial.seconds === 0;
+    });
+    const intervalRef = useRef(null);
 
+    useEffect(() => {
         // Update every second
         intervalRef.current = setInterval(() => {
             const remaining = computeTimeLeft();

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { getRandomInspiration } from "@/lib/data/inspirations";
 import styles from "./DailyInspiration.module.css";
 
@@ -10,12 +10,8 @@ import styles from "./DailyInspiration.module.css";
  * Changes each browser session for variety.
  */
 export default function DailyInspiration() {
-    const [inspiration, setInspiration] = useState(null);
+    const [inspiration] = useState(() => getRandomInspiration());
     const [showBangla, setShowBangla] = useState(true);
-
-    useEffect(() => {
-        setInspiration(getRandomInspiration());
-    }, []);
 
     if (!inspiration) return null;
 

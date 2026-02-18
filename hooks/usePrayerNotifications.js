@@ -12,24 +12,23 @@ import { useState, useEffect, useRef, useCallback } from "react";
  * @returns {{ permission, enabled, toggleNotifications, supported }}
  */
 export default function usePrayerNotifications(timings, enabled = false) {
-    const [permission, setPermission] = useState("default");
-    const [isEnabled, setIsEnabled] = useState(false);
-    const [supported, setSupported] = useState(false);
-    const timeoutsRef = useRef([]);
-
-    // Check support and existing permission
-    useEffect(() => {
+    const [permission, setPermission] = useState(() => {
         if (typeof window !== "undefined" && "Notification" in window) {
-            setSupported(true);
-            setPermission(Notification.permission);
-
-            // Restore saved preference
-            const saved = localStorage.getItem("ramadan-prayer-notifications");
-            if (saved === "true" && Notification.permission === "granted") {
-                setIsEnabled(true);
-            }
+            return Notification.permission;
         }
-    }, []);
+        return "default";
+    });
+    const [isEnabled, setIsEnabled] = useState(() => {
+        if (typeof window !== "undefined" && "Notification" in window) {
+            const saved = localStorage.getItem("ramadan-prayer-notifications");
+            return saved === "true" && Notification.permission === "granted";
+        }
+        return false;
+    });
+    const [supported] = useState(() => {
+        return typeof window !== "undefined" && "Notification" in window;
+    });
+    const timeoutsRef = useRef([]);
 
     // Parse time string "HH:MM" to today's Date object
     const parseTime = useCallback((timeStr) => {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import useGeolocation from "@/hooks/useGeolocation";
 import usePrayerNotifications from "@/hooks/usePrayerNotifications";
 import { getPrayerTimes } from "@/lib/api/prayerTimes";
@@ -79,25 +80,27 @@ export default function Home() {
                 <span className={styles.infoIcon}>📖</span>
                 <h4>Explore Quran</h4>
                 <p>Read surahs in Arabic with Bangla & English translations and audio</p>
-                <a href="/quran" className="btn btn-secondary" style={{ marginTop: "auto" }}>
+                <Link href="/quran" className="btn btn-secondary" style={{ marginTop: "auto" }}>
                   Browse Surahs →
-                </a>
+                </Link>
               </div>
 
               <div className={`glass-card ${styles.infoCard}`}>
                 <span className={styles.infoIcon}>📅</span>
                 <h4>Ramadan Calendar</h4>
                 <p>View Suhur & Iftar times for the entire month of Ramadan</p>
-                <a href="/prayer-times" className="btn btn-secondary" style={{ marginTop: "auto" }}>
+                <Link href="/prayer-times" className="btn btn-secondary" style={{ marginTop: "auto" }}>
                   View Calendar →
-                </a>
+                </Link>
               </div>
 
-              <div className={`glass-card ${styles.infoCard} ${styles.comingSoonCard}`}>
+              <div className={`glass-card ${styles.infoCard}`}>
                 <span className={styles.infoIcon}>🎙️</span>
                 <h4>AI Tajweed</h4>
                 <p>Practice Quran recitation with AI-powered tajweed feedback</p>
-                <span className="badge badge-orange">Coming Soon</span>
+                <Link href="/tajweed" className="btn btn-secondary" style={{ marginTop: "auto" }}>
+                  Try Tajweed →
+                </Link>
               </div>
             </div>
           </div>

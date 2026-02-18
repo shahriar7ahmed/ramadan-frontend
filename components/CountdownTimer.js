@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import useCountdown from "@/hooks/useCountdown";
 import { getNextPrayer } from "@/lib/api/prayerTimes";
 import styles from "./CountdownTimer.module.css";
@@ -10,16 +10,14 @@ import styles from "./CountdownTimer.module.css";
  * @param {{ timings: Object }} props
  */
 export default function CountdownTimer({ timings }) {
-    const [nextEvent, setNextEvent] = useState(null);
-
-    useEffect(() => {
-        if (!timings) return;
+    const nextEvent = useMemo(() => {
+        if (!timings) return null;
 
         const now = new Date();
         const maghribParts = timings.maghrib?.replace(/\s*\(.*\)/, "").split(":").map(Number);
         const fajrParts = timings.fajr?.replace(/\s*\(.*\)/, "").split(":").map(Number);
 
-        if (!maghribParts || !fajrParts) return;
+        if (!maghribParts || !fajrParts) return null;
 
         const maghribTime = new Date();
         maghribTime.setHours(maghribParts[0], maghribParts[1], 0, 0);
@@ -29,12 +27,12 @@ export default function CountdownTimer({ timings }) {
 
         // Determine if next event is Iftar (Maghrib) or Suhur (Fajr)
         if (now < fajrTime) {
-            setNextEvent({ label: "Suhur Ends", labelBn: "সেহরি শেষ", time: timings.fajr, icon: "🌙" });
+            return { label: "Suhur Ends", labelBn: "সেহরি শেষ", time: timings.fajr, icon: "🌙" };
         } else if (now < maghribTime) {
-            setNextEvent({ label: "Iftar Time", labelBn: "ইফতারের সময়", time: timings.maghrib, icon: "🌅" });
+            return { label: "Iftar Time", labelBn: "ইফতারের সময়", time: timings.maghrib, icon: "🌅" };
         } else {
             // After Maghrib, next Suhur is tomorrow's Fajr
-            setNextEvent({ label: "Suhur Ends", labelBn: "সেহরি শেষ", time: timings.fajr, icon: "🌙" });
+            return { label: "Suhur Ends", labelBn: "সেহরি শেষ", time: timings.fajr, icon: "🌙" };
         }
     }, [timings]);
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import CountdownTimer from "./CountdownTimer";
 import styles from "./HeroSection.module.css";
 
@@ -46,12 +47,12 @@ export default function HeroSection({ timings, city, onLocationClick }) {
 
                 {/* Quick Actions */}
                 <div className={styles.actions}>
-                    <a href="/prayer-times" className={`btn btn-primary ${styles.actionBtn}`}>
+                    <Link href="/prayer-times" className={`btn btn-primary ${styles.actionBtn}`}>
                         🕌 Prayer Times
-                    </a>
-                    <a href="/quran" className={`btn btn-secondary ${styles.actionBtn}`}>
+                    </Link>
+                    <Link href="/quran" className={`btn btn-secondary ${styles.actionBtn}`}>
                         📖 Explore Quran
-                    </a>
+                    </Link>
                 </div>
             </div>
 
