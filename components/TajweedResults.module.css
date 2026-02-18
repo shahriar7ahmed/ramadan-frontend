@@ -1,0 +1,291 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* Overall Score */
+.overallCard {
+    padding: var(--space-2xl);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.scoreCircle {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreSvg {
+    position: absolute;
+    inset: 0;
+    transform: rotate(-90deg);
+}
+
+.scoreBg {
+    fill: none;
+    stroke: var(--bg-tertiary);
+    stroke-width: 6;
+}
+
+.scoreArc {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease;
+}
+
+.scoreValue {
+    font-size: var(--fs-4xl);
+    font-weight: 800;
+    color: var(--score-color, var(--accent-orange));
+    line-height: 1;
+}
+
+.scoreLabel {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.detectedSurah {
+    font-size: var(--fs-sm);
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.praise p {
+    font-size: var(--fs-base);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.praiseBn {
+    font-family: var(--font-bangla);
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    margin-top: var(--space-xs);
+}
+
+/* Scores Grid */
+.scoresGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+}
+
+.scoreCard {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    text-align: center;
+}
+
+.catIcon {
+    font-size: 1.25rem;
+}
+
+.scoreBar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.scoreBarTrack {
+    flex: 1;
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.scoreBarFill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+}
+
+.scoreNum {
+    font-size: var(--fs-sm);
+    font-weight: 800;
+    min-width: 28px;
+    text-align: right;
+}
+
+.catLabel {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.catLabelBn {
+    font-family: var(--font-bangla);
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+}
+
+/* Summary */
+.summaryCard {
+    padding: var(--space-lg);
+}
+
+.summaryCard h4 {
+    font-size: var(--fs-md);
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.summaryCard p {
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.summaryBn {
+    font-family: var(--font-bangla);
+    margin-top: var(--space-sm);
+    color: var(--accent-brown) !important;
+}
+
+/* Feedback */
+.feedbackSection {
+    margin-top: var(--space-sm);
+}
+
+.feedbackTitle {
+    font-size: var(--fs-md);
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+}
+
+.feedbackList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.feedbackItem {
+    padding: var(--space-md);
+    border-left: 3px solid;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.feedbackHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    justify-content: space-between;
+}
+
+.feedbackWord {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-xl);
+    color: var(--text-primary);
+    direction: rtl;
+}
+
+.feedbackSeverity {
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+}
+
+.feedbackIssue {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.feedbackIssueBn {
+    font-family: var(--font-bangla);
+    font-size: var(--fs-sm);
+    color: var(--accent-brown);
+    line-height: 1.7;
+}
+
+.feedbackRule {
+    font-size: var(--fs-xs);
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.feedbackSuggestion {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Tips */
+.tipsCard {
+    padding: var(--space-lg);
+}
+
+.tipsCard h4 {
+    font-size: var(--fs-md);
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+}
+
+.tipsList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.tipsList li {
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--accent-gold);
+}
+
+.tipsList li p {
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.tipBn {
+    font-family: var(--font-bangla);
+    color: var(--accent-brown) !important;
+    margin-top: 2px;
+}
+
+/* Actions */
+.actions {
+    text-align: center;
+    margin-top: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .scoresGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .scoreCircle {
+        width: 110px;
+        height: 110px;
+    }
+
+    .scoreValue {
+        font-size: var(--fs-3xl);
+    }
+}

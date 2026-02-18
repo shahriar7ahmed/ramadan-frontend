@@ -1,79 +1,363 @@
 .page {
+    padding: var(--space-2xl) 0 var(--space-4xl);
     min-height: calc(100vh - var(--nav-height));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-2xl) 0;
 }
 
-.card {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: var(--space-2xl);
+/* Page Header */
+.pageHeader {
     text-align: center;
+    margin-bottom: var(--space-xl);
+    animation: fadeInUp 0.6s ease forwards;
 }
 
-.iconWrapper {
-    margin-bottom: var(--space-md);
-}
-
-.icon {
-    font-size: 4rem;
-    display: inline-block;
-    animation: float 4s ease-in-out infinite;
-}
-
-.title {
-    font-size: var(--fs-2xl);
+.pageTitle {
+    font-size: var(--fs-3xl);
     font-weight: 800;
-    color: var(--accent-brown);
+    color: var(--accent-brown-dark);
     margin-bottom: var(--space-xs);
 }
 
-.subtitle {
-    font-size: var(--fs-lg);
-    color: var(--accent-orange);
-    font-weight: 600;
-    margin-bottom: var(--space-md);
+.pageSubtitle {
+    font-size: var(--fs-md);
+    color: var(--text-secondary);
 }
 
-.description {
-    font-size: var(--fs-base);
-    color: var(--text-secondary);
-    line-height: 1.7;
+.pageSubtitleBn {
+    font-family: var(--font-bangla);
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+    margin-top: var(--space-xs);
+}
+
+/* Steps */
+.steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 100px;
+    transition: all var(--transition-base);
+}
+
+.activeStep {
+    color: var(--accent-orange);
+    background: rgba(224, 123, 57, 0.1);
+}
+
+.doneStep {
+    color: #22c55e;
+}
+
+.stepNum {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    background: var(--bg-tertiary);
+}
+
+.activeStep .stepNum {
+    background: var(--accent-orange);
+    color: var(--white);
+}
+
+.doneStep .stepNum {
+    background: #22c55e;
+    color: var(--white);
+}
+
+.stepDivider {
+    width: 32px;
+    height: 2px;
+    background: var(--border-light);
+}
+
+/* Surah Selection */
+.selectSection {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.sectionHeader {
+    text-align: center;
     margin-bottom: var(--space-xl);
 }
 
-.features {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    text-align: left;
+.sectionHeader h2 {
+    font-size: var(--fs-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
 }
 
-.feature {
+.sectionHeader p {
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+}
+
+/* Difficulty Filter */
+.difficultyFilter {
     display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-    padding: var(--space-md);
-    border-radius: var(--radius-md);
-    background: rgba(224, 123, 57, 0.04);
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+}
+
+.diffBtn {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 100px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
     border: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: all var(--transition-base);
 }
 
-.featureIcon {
-    font-size: 1.5rem;
+.diffBtn:hover {
+    border-color: var(--accent-orange);
+}
+
+.activeDiff {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-brown));
+    color: var(--white);
+    border-color: transparent;
+}
+
+/* Surah Grid */
+.surahGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.surahCard {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    cursor: pointer;
+    text-align: left;
+    transition: all var(--transition-base);
+}
+
+.surahCard:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-orange);
+}
+
+.surahNumber {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--fs-sm);
     flex-shrink: 0;
 }
 
-.feature h4 {
+.surahInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.surahName {
+    font-weight: 700;
     font-size: var(--fs-base);
-    font-weight: 600;
     color: var(--text-primary);
+}
+
+.surahNameBn {
+    font-family: var(--font-bangla);
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+}
+
+.ayahCount {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+    white-space: nowrap;
+}
+
+/* Free Recite */
+.freeRecite {
+    margin-bottom: var(--space-2xl);
+}
+
+.freeReciteBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg) var(--space-xl);
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border-style: dashed;
+}
+
+.freeReciteBtn:hover {
+    border-color: var(--accent-orange);
+}
+
+.freeIcon {
+    font-size: 2rem;
+}
+
+.freeReciteBtn strong {
+    font-size: var(--fs-base);
+    color: var(--accent-orange);
+    display: block;
     margin-bottom: 2px;
 }
 
-.feature p {
+.freeReciteBtn p {
     font-size: var(--fs-sm);
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
+}
+
+/* Record Section */
+.recordSection {
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.backBtn {
+    font-size: var(--fs-sm);
+    color: var(--accent-orange);
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: var(--space-lg);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: opacity 0.2s;
+}
+
+.backBtn:hover {
+    opacity: 0.7;
+}
+
+/* Arabic Reference */
+.arabicReference {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.arabicReference h4 {
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-sm);
+}
+
+.arabicText {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-xl);
+    line-height: 2.2;
+    color: var(--text-primary);
+    direction: rtl;
+    text-align: right;
+}
+
+/* Results Section */
+.resultsSection {
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.chatSection {
+    margin-top: var(--space-2xl);
+}
+
+/* How It Works */
+.howItWorks {
+    margin-top: var(--space-2xl);
+}
+
+.howItWorks h3 {
+    text-align: center;
+    font-size: var(--fs-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xl);
+}
+
+.howGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+}
+
+.howCard {
+    padding: var(--space-lg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.howIcon {
+    font-size: 1.5rem;
+}
+
+.howCard h4 {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.howCard p {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .howGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps {
+        font-size: var(--fs-xs);
+    }
+
+    .step span:last-child {
+        display: none;
+    }
+
+    .surahGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding: var(--space-lg) 0;
+    }
 }

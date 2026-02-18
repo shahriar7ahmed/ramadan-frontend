@@ -1,0 +1,207 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header {
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.title {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Messages */
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.message {
+    display: flex;
+    max-width: 85%;
+}
+
+.user {
+    align-self: flex-end;
+}
+
+.assistant {
+    align-self: flex-start;
+}
+
+.bubble {
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+}
+
+.user .bubble {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-brown));
+    color: var(--white);
+    border-bottom-right-radius: 4px;
+}
+
+.assistant .bubble {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+}
+
+.banglaText {
+    font-family: var(--font-bangla);
+    margin-top: var(--space-xs);
+    font-size: var(--fs-sm);
+    opacity: 0.85;
+    line-height: 1.7;
+}
+
+.assistant .banglaText {
+    color: var(--accent-brown);
+}
+
+.tipBox {
+    margin-top: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(212, 162, 89, 0.1);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-xs);
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* Typing indicator */
+.typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: var(--space-md) var(--space-lg);
+}
+
+.typing span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+    animation: typingDot 1.4s ease-in-out infinite;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingDot {
+
+    0%,
+    60%,
+    100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+}
+
+/* Quick Questions */
+.quickQuestions {
+    display: flex;
+    gap: var(--space-xs);
+    padding: 0 var(--space-lg) var(--space-sm);
+    overflow-x: auto;
+    flex-shrink: 0;
+}
+
+.quickBtn {
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 100px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--accent-orange);
+    background: rgba(224, 123, 57, 0.08);
+    border: 1px solid rgba(224, 123, 57, 0.15);
+    white-space: nowrap;
+    transition: all var(--transition-base);
+}
+
+.quickBtn:hover {
+    background: rgba(224, 123, 57, 0.15);
+    border-color: var(--accent-orange);
+}
+
+/* Input */
+.inputArea {
+    display: flex;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-lg);
+    border-top: 1px solid var(--border-light);
+    flex-shrink: 0;
+}
+
+.input {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 100px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-secondary);
+    font-size: var(--fs-sm);
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color var(--transition-base);
+}
+
+.input:focus {
+    border-color: var(--accent-orange);
+}
+
+.sendBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-brown));
+    color: var(--white);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    flex-shrink: 0;
+}
+
+.sendBtn:hover:not(:disabled) {
+    transform: scale(1.08);
+}
+
+.sendBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 400px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
