@@ -1,0 +1,250 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* Header */
+.header {
+    padding: var(--space-xl);
+}
+
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+.surahName {
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--accent-brown-dark);
+    margin-bottom: 4px;
+}
+
+.surahMeaning {
+    font-size: var(--fs-md);
+    color: var(--text-secondary);
+}
+
+.headerRight {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.arabicTitle {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-3xl);
+    color: var(--accent-brown);
+    display: block;
+    direction: rtl;
+    margin-bottom: var(--space-xs);
+}
+
+.headerMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    justify-content: flex-end;
+}
+
+.ayahCount {
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+}
+
+/* Bismillah */
+.bismillah {
+    text-align: center;
+    padding: var(--space-xl) 0;
+}
+
+.bismillahText {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-3xl);
+    color: var(--accent-gold);
+    display: block;
+    direction: rtl;
+    margin-bottom: var(--space-sm);
+    line-height: 1.8;
+}
+
+.bismillahTranslation {
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+    font-style: italic;
+}
+
+/* Ayah List */
+.ayahList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.ayahBlock {
+    position: relative;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.ayahBlock:hover {
+    border-color: rgba(224, 123, 57, 0.2);
+    box-shadow: 0 4px 20px rgba(45, 27, 14, 0.06);
+}
+
+.ayahActive {
+    border-color: var(--accent-orange) !important;
+    background: rgba(224, 123, 57, 0.06);
+    box-shadow: 0 4px 24px rgba(224, 123, 57, 0.12);
+}
+
+/* Ayah Number */
+.ayahNumber {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, rgba(224, 123, 57, 0.12), rgba(212, 162, 89, 0.12));
+    border: 1px solid rgba(224, 123, 57, 0.2);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--accent-orange);
+}
+
+/* Arabic */
+.arabicText {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-2xl);
+    line-height: 2.2;
+    direction: rtl;
+    text-align: right;
+    color: var(--text-primary);
+    padding: var(--space-md) 0 var(--space-md) 40px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: var(--space-md);
+}
+
+/* Bangla */
+.banglaText {
+    font-family: var(--font-bangla);
+    font-size: var(--fs-md);
+    line-height: 1.9;
+    color: var(--accent-brown);
+    padding: 0 0 var(--space-sm) 40px;
+}
+
+/* English */
+.englishText {
+    font-size: var(--fs-base);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    padding: 0 0 0 40px;
+}
+
+/* Play Ayah Button */
+.playAyah {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    transition: all var(--transition-base);
+    opacity: 0;
+}
+
+.ayahBlock:hover .playAyah {
+    opacity: 1;
+}
+
+.playAyah:hover {
+    background: rgba(224, 123, 57, 0.15);
+    color: var(--accent-orange);
+}
+
+/* Loading */
+.loading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.ayahSkeleton {
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.skelArabic {
+    height: 40px;
+    margin-bottom: var(--space-md);
+}
+
+.skelBangla {
+    height: 24px;
+    width: 80%;
+    margin-bottom: var(--space-sm);
+}
+
+.skelEnglish {
+    height: 20px;
+    width: 70%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .headerTop {
+        flex-direction: column;
+    }
+
+    .headerRight {
+        text-align: left;
+    }
+
+    .headerMeta {
+        justify-content: flex-start;
+    }
+
+    .ayahBlock {
+        padding: var(--space-md);
+    }
+
+    .arabicText {
+        font-size: var(--fs-xl);
+        padding-left: 0;
+        line-height: 2;
+    }
+
+    .banglaText,
+    .englishText {
+        padding-left: 0;
+    }
+
+    .ayahNumber {
+        position: static;
+        margin-bottom: var(--space-sm);
+    }
+
+    .playAyah {
+        opacity: 1;
+    }
+}

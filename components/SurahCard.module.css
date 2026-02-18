@@ -1,0 +1,113 @@
+.card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card:hover {
+    color: var(--text-primary);
+}
+
+/* Number diamond */
+.number {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, rgba(224, 123, 57, 0.12), rgba(212, 162, 89, 0.12));
+    border: 1px solid rgba(224, 123, 57, 0.2);
+    border-radius: 8px;
+}
+
+.numberInner {
+    transform: rotate(-45deg);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--accent-orange);
+}
+
+/* Info */
+.info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.englishName {
+    font-weight: 600;
+    font-size: var(--fs-base);
+    color: var(--text-primary);
+}
+
+.translation {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+}
+
+.banglaName {
+    font-family: var(--font-bangla);
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+/* Right side */
+.right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-xs);
+    flex-shrink: 0;
+}
+
+.arabicName {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-xl);
+    color: var(--accent-brown);
+    direction: rtl;
+    line-height: 1.4;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.ayahCount {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .right {
+        display: none;
+    }
+
+    .meta {
+        display: none;
+    }
+}
+
+/* Show Arabic name on mobile inside info section */
+@media (max-width: 480px) {
+    .info::after {
+        content: attr(data-arabic);
+        font-family: var(--font-arabic);
+        font-size: var(--fs-base);
+        color: var(--accent-brown);
+        direction: rtl;
+    }
+}

@@ -1,0 +1,169 @@
+.player {
+    position: sticky;
+    bottom: var(--space-md);
+    z-index: 50;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-lg);
+    margin: var(--space-md);
+    box-shadow: 0 -4px 24px rgba(45, 27, 14, 0.12);
+}
+
+/* Ayah Info */
+.ayahInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+.ayahLabel {
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    color: var(--accent-brown);
+}
+
+.ayahTotal {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.controlBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-size: 1.1rem;
+    transition: all var(--transition-base);
+    color: var(--text-primary);
+}
+
+.controlBtn:hover:not(:disabled) {
+    background: rgba(224, 123, 57, 0.1);
+    color: var(--accent-orange);
+}
+
+.controlBtn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.playBtn {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-brown));
+    font-size: 1.3rem;
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(224, 123, 57, 0.3);
+    transition: all var(--transition-base);
+}
+
+.playBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(224, 123, 57, 0.45);
+}
+
+/* Progress */
+.progressWrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.progressBar {
+    flex: 1;
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-gold));
+    border-radius: 3px;
+    transition: width 0.1s linear;
+}
+
+.progressThumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-orange);
+    box-shadow: 0 2px 8px rgba(224, 123, 57, 0.3);
+    transition: left 0.1s linear;
+}
+
+.time {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+    min-width: 36px;
+    text-align: center;
+}
+
+/* Play Mode */
+.modeToggle {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xs);
+}
+
+.modeBtn {
+    padding: 4px 14px;
+    border-radius: 100px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    transition: all var(--transition-base);
+    border: 1px solid transparent;
+}
+
+.modeBtn:hover {
+    color: var(--accent-orange);
+}
+
+.modeBtnActive {
+    background: rgba(224, 123, 57, 0.1);
+    color: var(--accent-orange);
+    border-color: rgba(224, 123, 57, 0.2);
+}
+
+@media (max-width: 640px) {
+    .player {
+        padding: var(--space-sm) var(--space-md);
+        margin: var(--space-sm);
+        border-radius: var(--radius-md);
+    }
+
+    .controls {
+        gap: var(--space-md);
+    }
+
+    .playBtn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+}

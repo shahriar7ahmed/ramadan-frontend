@@ -1,0 +1,79 @@
+.page {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl) 0;
+}
+
+.card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-2xl);
+    text-align: center;
+}
+
+.iconWrapper {
+    margin-bottom: var(--space-md);
+}
+
+.icon {
+    font-size: 4rem;
+    display: inline-block;
+    animation: float 4s ease-in-out infinite;
+}
+
+.title {
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--accent-brown);
+    margin-bottom: var(--space-xs);
+}
+
+.subtitle {
+    font-size: var(--fs-lg);
+    color: var(--accent-orange);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.description {
+    font-size: var(--fs-base);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: left;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    background: rgba(224, 123, 57, 0.04);
+    border: 1px solid var(--border-light);
+}
+
+.featureIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.feature h4 {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.feature p {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+}

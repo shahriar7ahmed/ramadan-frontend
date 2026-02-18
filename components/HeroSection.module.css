@@ -1,0 +1,195 @@
+.hero {
+    position: relative;
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(160deg,
+            var(--bg-primary) 0%,
+            var(--bg-secondary) 40%,
+            rgba(224, 123, 57, 0.06) 100%);
+}
+
+/* Background decorations */
+.bgDecor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.circle1 {
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(224, 123, 57, 0.1) 0%, transparent 70%);
+    animation: float 8s ease-in-out infinite;
+}
+
+.circle2 {
+    position: absolute;
+    bottom: -100px;
+    left: -60px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 162, 89, 0.08) 0%, transparent 70%);
+    animation: float 10s ease-in-out infinite 2s;
+}
+
+.circle3 {
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 94, 60, 0.06) 0%, transparent 70%);
+    animation: float 7s ease-in-out infinite 1s;
+}
+
+/* Content */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    padding: var(--space-2xl) var(--space-lg);
+}
+
+.greeting {
+    animation: fadeInUp 0.8s ease forwards;
+    margin-bottom: var(--space-lg);
+}
+
+.arabicGreeting {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-3xl);
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: var(--space-sm);
+    direction: rtl;
+    animation: float 5s ease-in-out infinite;
+}
+
+.title {
+    font-size: var(--fs-hero);
+    font-weight: 800;
+    color: var(--accent-brown-dark);
+    line-height: 1.1;
+    margin-bottom: var(--space-xs);
+}
+
+.accent {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitleBn {
+    font-family: var(--font-bangla);
+    font-size: var(--fs-lg);
+    color: var(--accent-brown);
+    margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+    font-size: var(--fs-md);
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.7;
+}
+
+/* Location Pill */
+.locationPill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--glass-bg-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    margin-bottom: var(--space-lg);
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.locationPill:hover {
+    border-color: var(--accent-orange);
+    box-shadow: 0 4px 16px rgba(224, 123, 57, 0.15);
+}
+
+.locationIcon {
+    font-size: 1rem;
+}
+
+.changeText {
+    font-size: var(--fs-xs);
+    color: var(--accent-orange);
+    font-weight: 600;
+}
+
+/* Countdown */
+.countdownWrapper {
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: var(--space-xl);
+    animation: fadeInUp 0.8s ease 0.3s forwards;
+    opacity: 0;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: var(--space-md);
+    animation: fadeInUp 0.8s ease 0.5s forwards;
+    opacity: 0;
+}
+
+.actionBtn {
+    padding: var(--space-md) var(--space-xl);
+    font-size: var(--fs-base);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+}
+
+@media (max-width: 640px) {
+    .hero {
+        min-height: auto;
+        padding: var(--space-xl) 0;
+    }
+
+    .content {
+        padding: var(--space-lg);
+    }
+
+    .actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .actionBtn {
+        width: 100%;
+    }
+
+    .arabicGreeting {
+        font-size: var(--fs-2xl);
+    }
+
+    .countdownWrapper {
+        max-width: 100%;
+    }
+}

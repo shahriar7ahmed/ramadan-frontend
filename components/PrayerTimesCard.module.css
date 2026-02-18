@@ -1,0 +1,193 @@
+.card {
+    padding: var(--space-xl);
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.title {
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--accent-brown);
+    margin-bottom: 4px;
+}
+
+.location {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+}
+
+.hijriDate {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-align: right;
+}
+
+.hijriDay {
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--accent-orange);
+    line-height: 1;
+}
+
+.hijriMonth {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.hijriYear {
+    display: block;
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+/* Prayer List */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    position: relative;
+    animation: fadeInUp 0.4s ease forwards;
+    opacity: 0;
+}
+
+.row:hover {
+    background: rgba(139, 94, 60, 0.04);
+}
+
+.rowActive {
+    background: rgba(224, 123, 57, 0.08);
+    border: 1px solid rgba(224, 123, 57, 0.15);
+}
+
+.rowActive:hover {
+    background: rgba(224, 123, 57, 0.12);
+}
+
+.rowIftar {
+    background: linear-gradient(135deg,
+            rgba(224, 123, 57, 0.05),
+            rgba(212, 162, 89, 0.05));
+}
+
+.rowSuhur {
+    background: linear-gradient(135deg,
+            rgba(139, 94, 60, 0.04),
+            rgba(212, 162, 89, 0.04));
+}
+
+.rowLeft {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.rowIcon {
+    font-size: 1.25rem;
+    width: 32px;
+    text-align: center;
+}
+
+.prayerName {
+    display: block;
+    font-weight: 600;
+    font-size: var(--fs-base);
+    color: var(--text-primary);
+}
+
+.prayerNameBn {
+    display: block;
+    font-family: var(--font-bangla);
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+.rowRight {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.time {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Next Prayer Badge */
+.nextBadge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.nextDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-orange);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Loading */
+.loadingGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md) 0;
+}
+
+.loadingRow {
+    height: 48px;
+    border-radius: var(--radius-sm);
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: var(--space-md);
+    }
+
+    .row {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .header {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .hijriDate {
+        text-align: left;
+    }
+}

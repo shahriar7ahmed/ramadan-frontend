@@ -1,0 +1,154 @@
+.container {
+    padding: var(--space-xl);
+    overflow: hidden;
+}
+
+.header {
+    margin-bottom: var(--space-lg);
+}
+
+.title {
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--accent-brown);
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+}
+
+/* Table */
+.tableWrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-sm);
+    white-space: nowrap;
+}
+
+.table th {
+    background: var(--bg-secondary);
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 2px solid var(--border-medium);
+    position: sticky;
+    top: 0;
+}
+
+.thSuhur {
+    color: var(--accent-gold) !important;
+}
+
+.thIftar {
+    color: var(--accent-orange) !important;
+}
+
+.table td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.tableRow {
+    transition: background var(--transition-fast);
+}
+
+.tableRow:hover {
+    background: rgba(139, 94, 60, 0.04);
+}
+
+.todayRow {
+    background: rgba(224, 123, 57, 0.08) !important;
+    font-weight: 600;
+}
+
+.todayRow td {
+    border-bottom-color: rgba(224, 123, 57, 0.2);
+}
+
+.dayNum {
+    font-weight: 700;
+    color: var(--accent-brown);
+    text-align: center;
+    width: 44px;
+}
+
+.date {
+    color: var(--text-secondary);
+    font-size: var(--fs-xs);
+}
+
+.weekday {
+    color: var(--text-tertiary);
+}
+
+.suhur {
+    font-weight: 700;
+    color: var(--accent-gold) !important;
+}
+
+.iftar {
+    font-weight: 700;
+    color: var(--accent-orange) !important;
+}
+
+.error {
+    color: #c0392b;
+    text-align: center;
+    padding: var(--space-xl);
+}
+
+.empty {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: var(--space-xl);
+    font-size: var(--fs-sm);
+}
+
+/* Loading */
+.loadingGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.loadingRow {
+    height: 40px;
+    border-radius: var(--radius-sm);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: var(--space-md);
+    }
+
+    .thWeekday,
+    .thPrayer {
+        display: none;
+    }
+
+    .weekday {
+        display: none;
+    }
+
+    .table td:nth-child(n+6) {
+        display: none;
+    }
+
+    .table th:nth-child(n+6) {
+        display: none;
+    }
+}

@@ -1,95 +1,65 @@
-.hero {
-  min-height: calc(100vh - var(--nav-height));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.page {
   overflow: hidden;
-  background: linear-gradient(135deg,
-      var(--bg-primary) 0%,
-      var(--bg-secondary) 50%,
-      rgba(224, 123, 57, 0.05) 100%);
 }
 
-.heroContent {
+/* Prayer Section */
+.prayerSection {
+  padding-top: var(--space-3xl);
+}
+
+.prayerGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* Info Cards */
+.infoCards {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: var(--space-4xl) var(--space-lg);
-  z-index: 1;
-}
-
-.greeting {
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-.greetingArabic {
-  font-family: var(--font-arabic);
-  font-size: var(--fs-3xl);
-  color: var(--accent-gold);
-  display: block;
-  margin-bottom: var(--space-md);
-  direction: rtl;
-}
-
-.title {
-  font-size: var(--fs-hero);
-  font-weight: 800;
-  color: var(--accent-brown-dark);
-  margin-bottom: var(--space-md);
-  line-height: 1.1;
-}
-
-.titleAccent {
-  background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.subtitle {
-  font-size: var(--fs-md);
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto var(--space-sm);
-  line-height: 1.7;
-}
-
-.subtitleBn {
-  font-family: var(--font-bangla);
-  font-size: var(--fs-base);
-  color: var(--text-tertiary);
-  max-width: 500px;
-  margin: 0 auto var(--space-2xl);
-  line-height: 1.8;
-}
-
-.quickLinks {
-  display: flex;
   gap: var(--space-md);
-  animation: fadeInUp 0.8s ease 0.3s forwards;
-  opacity: 0;
 }
 
-.quickLink {
-  padding: var(--space-md) var(--space-xl);
-  font-size: var(--fs-base);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
+.infoCard {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: all var(--transition-base);
 }
 
-@media (max-width: 640px) {
-  .quickLinks {
-    flex-direction: column;
-    width: 100%;
+.infoCard h4 {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--accent-brown);
+}
+
+.infoCard p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.infoIcon {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-xs);
+}
+
+.comingSoonCard {
+  opacity: 0.85;
+  border-style: dashed;
+}
+
+@media (max-width: 768px) {
+  .prayerGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
   }
 
-  .quickLink {
-    width: 100%;
-  }
-
-  .greetingArabic {
-    font-size: var(--fs-2xl);
+  .infoCards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
   }
 }

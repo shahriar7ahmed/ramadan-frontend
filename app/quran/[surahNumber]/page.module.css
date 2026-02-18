@@ -1,0 +1,91 @@
+.page {
+    min-height: calc(100vh - var(--nav-height));
+    padding: var(--space-lg) 0 calc(var(--space-4xl) + 120px);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    font-size: var(--fs-sm);
+}
+
+.breadcrumbLink {
+    color: var(--accent-orange);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.breadcrumbLink:hover {
+    color: var(--accent-brown);
+}
+
+.breadcrumbSep {
+    color: var(--text-tertiary);
+}
+
+.breadcrumbCurrent {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Surah Navigation */
+.surahNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+}
+
+.bottomNav {
+    margin-top: var(--space-2xl);
+    margin-bottom: 0;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-light);
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.navBtn {
+    font-size: var(--fs-sm);
+}
+
+.navSpacer {
+    flex: 1;
+}
+
+/* Error */
+.errorCard {
+    text-align: center;
+    padding: var(--space-2xl);
+    max-width: 400px;
+    margin: var(--space-4xl) auto;
+}
+
+.errorCard p {
+    color: #c0392b;
+    margin-bottom: var(--space-md);
+}
+
+@media (max-width: 640px) {
+    .page {
+        padding: var(--space-md) 0 calc(var(--space-2xl) + 100px);
+    }
+
+    .surahNav {
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        justify-content: center;
+    }
+
+    .navSpacer {
+        display: none;
+    }
+
+    .bottomNav {
+        flex-direction: column;
+    }
+}

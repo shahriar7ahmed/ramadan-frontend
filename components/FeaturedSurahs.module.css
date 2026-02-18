@@ -1,0 +1,125 @@
+.section {
+    padding-top: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-lg);
+    gap: var(--space-sm);
+    text-decoration: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.card:hover {
+    color: var(--text-primary);
+}
+
+.cardNumber {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+    color: var(--white);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+    box-shadow: 0 4px 12px rgba(224, 123, 57, 0.25);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cardArabic {
+    font-family: var(--font-arabic);
+    font-size: var(--fs-xl);
+    color: var(--accent-brown);
+    direction: rtl;
+    line-height: 1.5;
+}
+
+.cardEnglish {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cardMeaning {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+}
+
+.cardBangla {
+    font-family: var(--font-bangla);
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+.cardMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
+}
+
+.cardAyahs {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+.viewAll {
+    text-align: center;
+    margin-top: var(--space-2xl);
+}
+
+.skelCard {
+    height: 200px;
+    border-radius: var(--radius-lg);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .card {
+        flex-direction: row;
+        text-align: left;
+        padding: var(--space-md);
+    }
+
+    .cardContent {
+        flex: 1;
+    }
+
+    .cardNumber {
+        margin-bottom: 0;
+    }
+
+    .cardMeta {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
